@@ -22,14 +22,18 @@ public class Main {
         dataList.add("Test7");
         dataList.add("Test8");
         
-        //OBJ CLASS
-        MainMenu menu = new MainMenu();
+        //OBJ CLASS COMMAND
         NextPage next = new NextPage();
-        CheckOutOfIndex check = new CheckOutOfIndex();
-        CountNextPage pageCounter = new CountNextPage();
         BackPage back = new BackPage();
         AddData adds = new AddData();
+        ReamoveData reamov = new ReamoveData();
+        //OBJ CLASS SUPPORT
+        MainMenu menu = new MainMenu();
+        CheckOutOfIndex check = new CheckOutOfIndex();
+        CountNextPage pageCounter = new CountNextPage();
         AddDataSupport addSup = new AddDataSupport();
+        
+        
         
         while (true) {
             pageList = pageCounter.counter(iValues, iMax, dataList);
@@ -65,6 +69,14 @@ public class Main {
                 System.out.print("[ + ] ADD: " );
                 String data = input.nextLine();
                 dataList.set(index, data);
+            } else if (command.equals("Reamove") || command.equals("4")) {
+                String indexAdd = reamov.reamoveList(dataList);
+                int index = -1;
+                if (indexAdd.equals("allEmpty")) {
+                    System.out.println("ALL DATA IS EMPTY (NULL)");
+                }
+                index = Integer.parseInt(reamov.reamoveList(dataList));
+                dataList.set(index, null);
             }
             
             
