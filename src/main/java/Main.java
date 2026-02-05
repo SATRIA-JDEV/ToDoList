@@ -29,9 +29,9 @@ public class Main {
         CountNextPage pageCounter = new CountNextPage();
         BackPage back = new BackPage();
         AddData adds = new AddData();
+        AddDataSupport addSup = new AddDataSupport();
         
         while (true) {
-            System.out.println(dataList.size());
             pageList = pageCounter.counter(iValues, iMax, dataList);
             menu.Menu(iValues, iMax, pageList, dataList);
             
@@ -53,7 +53,18 @@ public class Main {
                     iMax += 4;
                 }
             } else if (command.equals("Add") || command.equals("3")) {
-                dataList.add(adds.addList(input));
+                String indexAdd = adds.addList(dataList);
+                int index = -1;
+                if (indexAdd.equals("noNull")) {
+                    int loop = addSup.ensure(dataList);
+                    for (int i = 1; i <= loop; i++) {
+                        dataList.add(null);
+                    }
+                }
+                index = Integer.parseInt(adds.addList(dataList));
+                System.out.print("[ + ] ADD: " );
+                String data = input.nextLine();
+                dataList.set(index, data);
             }
             
             

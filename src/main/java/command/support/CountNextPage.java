@@ -7,7 +7,7 @@ public class CountNextPage {
         if (iMax+4 >= dataList.size()) {
             return 0;
         }
-        for (int i = iValues+4; i <= iMax+4; i++) {
+        for (int i = iValues+4; i <= dataList.size()-1; i++) {
             if (dataList.get(i) != null) {
                 count++;
             }

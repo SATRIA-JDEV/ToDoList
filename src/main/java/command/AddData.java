@@ -3,15 +3,13 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class AddData {
-    public String addList(Scanner input) {
-        for (int i = 1; i <= 4; i++) {
-            System.out.print("INPUT NEW DATA: ")!
-            ArrayList<String> result = input.nextLine();
-            if (result.equals("exit")) {
-                return result
+    public String addList(ArrayList<String> dataList) {
+        for(int i = 0; i < dataList.size(); i++) {
+            if (dataList.get(i) == null) {
+                String convertI = Integer.toString(i);
+                return convertI;
             }
         }
-        String result = input.nextLine();
-        return result;
+        return "noNull";
     }
 }
