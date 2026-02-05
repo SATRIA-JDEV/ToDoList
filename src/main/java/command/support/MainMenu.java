@@ -14,7 +14,7 @@ public class MainMenu {
         System.out.println("[ Back ] OR [ 2 ] Back Page");
         System.out.println("[ Add ] OR [ 3 ] Add New");
         System.out.println("[ Reamove ] OR [ 4 ] Delate Data ToDoList");
-        System.out.println("[ Change ] OR [ 6 ]  Change Data ToDoList");
+        System.out.println("[ Change ] OR [ 5 ]  Change Data ToDoList");
         System.out.println("[ Exit ] OR [ X ] To Exit Program");
         System.out.println("=======================");
         System.out.print("[ ~ ] ");

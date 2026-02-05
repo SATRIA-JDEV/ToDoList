@@ -10,6 +10,7 @@ public class Main {
     public static int iMax = 3;
     public static int pageList = 0;
     public static ArrayList<String> dataList = new ArrayList<>();
+    public static String await;
     
     public static void main(String[] args) {
         
@@ -27,6 +28,7 @@ public class Main {
         BackPage back = new BackPage();
         AddData adds = new AddData();
         ReamoveData reamov = new ReamoveData();
+        ChangeData change = new ChangeData();
         //OBJ CLASS SUPPORT
         MainMenu menu = new MainMenu();
         CheckOutOfIndex check = new CheckOutOfIndex();
@@ -73,10 +75,24 @@ public class Main {
                 String indexAdd = reamov.reamoveList(dataList);
                 int index = -1;
                 if (indexAdd.equals("allEmpty")) {
-                    System.out.println("ALL DATA IS EMPTY (NULL)");
+                    System.out.print("ALL DATA IS EMPTY (NULL)");
+                    await = input.nextLine();
+                    continue;
                 }
                 index = Integer.parseInt(reamov.reamoveList(dataList));
                 dataList.set(index, null);
+            } else if (command.equals("Change") || command.equals("5")) {
+                int index = change.indexData(input);
+                input.nextLine();
+                if (index < 0) {
+                    System.out.print("NUMBER CANT BELLOW 0");
+                    await = input.nextLine();
+                }
+                String value = change.valueData(input);
+                dataList.set(index-1, value);
+            } else if (command.equals("Exit") || command.equals("X")) {
+                System.out.print("PROGRAM STOPED... ");
+                break;
             }
             
             
